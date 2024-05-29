@@ -1,7 +1,10 @@
+import mongoose from "mongoose";
 import { z } from "zod";
 
 const taskSchema = z.object({
-    id: z.number(),
+    project: z.string().refine((val) => {
+        return mongoose.Types.ObjectId.isValid(val)
+    }),
     title: z.string(),
     description: z.string().optional(),
     dueDate: z.string().optional(),

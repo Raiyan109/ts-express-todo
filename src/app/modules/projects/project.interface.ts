@@ -1,7 +1,8 @@
-import { Task } from "../tasks/task.interface";
+import { Types } from "mongoose";
+import { TaskType } from "../tasks/task.interface";
 
-export type Project = {
-    id: string;
+export type ProjectType = {
+    id: number;
     name: string;
-    tasks: Task[];
+    tasks?: Types.ObjectId[];
 }
